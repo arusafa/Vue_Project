@@ -2,7 +2,7 @@
     <div class="grid-wrap">
         <!--in order to display a list in Vue ==> "v-for directive"-->
         <div class="product-item" v-for="product in products" :key="product.id">
-            <img :src="product.imageName" />
+            <img :src="product.imageUrl" />
             <h3 class="product-name">{{ product.name }}</h3>
             <p class="product-price">{{ product.price }}</p>
             <!-- in order to select the id we have to add : before the to-->

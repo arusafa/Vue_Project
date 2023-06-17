@@ -1,5 +1,5 @@
 <template>
-  <h1>My Shopping Car</h1>
+  <h1>My Shopping Cart</h1>
   <!--using v-if statement if theres no item-->
   <div v-if="cartItems.length > 0">
     <div class="product-container" v-for="product in cartItems" :key="product.id">

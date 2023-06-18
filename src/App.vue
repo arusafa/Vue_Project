@@ -1,20 +1,29 @@
 <template>
-  <NavBar/>
+  <NavBar />
   <div class="page-wrap">
-     <!-- To have router-view-->
-  <router-view></router-view>
+      <router-view :user="user"></router-view>
   </div>
 </template>
 
 <script>
-
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import NavBar from '@/components/NavBar.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    NavBar
+    NavBar,
   },
-}
+  data() {
+    return {
+      user: null,
+    }
+  },
+  created() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, user => {
+      this.user = user;
+    });
+  }
+};
 </script>
-

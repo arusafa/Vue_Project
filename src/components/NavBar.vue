@@ -5,14 +5,18 @@
                 <img :src="logo" />
             </div>
         </router-link>
-        <router-link to="/cart" class="cart-link">
-            <button class="cart-button">Shopping Cart</button>
-        </router-link>
-        
+        <div class="div nav-buttons-wrap">
+            <button @click="signOut">Sign Out</button>
+            <router-link to="/cart">
+                <button class="cart-button">Shopping Cart</button>
+            </router-link>
+        </div>
     </div>
 </template>
 
 <script>
+
+import { getAuth, signOut } from 'firebase/auth'
 
 import logo from '@/assets/logo-hexagon.svg'
 
@@ -21,6 +25,13 @@ export default {
     data() {
         return {
             logo,
+        }
+    },
+    methods: {
+        async signOut() {
+            const auth = getAuth();
+            await signOut(auth);
+            alert('You have been signed out');
         }
     }
 }

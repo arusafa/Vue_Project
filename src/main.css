@@ -95,8 +95,8 @@
     background-color: green;
   }
   
-  .grey-button {
-    background-color: #888;
+  .danger-button {
+    background-color: #ce2a2a;
     width: 100%;
   }
   

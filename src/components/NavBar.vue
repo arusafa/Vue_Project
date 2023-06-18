@@ -6,7 +6,7 @@
             </div>
         </router-link>
         <div class="div nav-buttons-wrap">
-            <button @click="signOut">Sign Out</button>
+            <button @click="signOut" v-if="user">Sign Out</button>
             <router-link to="/cart">
                 <button class="cart-button">Shopping Cart</button>
             </router-link>
@@ -22,6 +22,7 @@ import logo from '@/assets/logo-hexagon.svg'
 
 export default {
     name: 'NavBar',
+    props:['user'],
     data() {
         return {
             logo,
